@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Product Filter</title>
+</head>
+<body>
+    <main class="container">
+        <section class="filters">
+
+            <label for="sellerFilter">Select Seller:</label>
+            <select id="sellerFilter" onchange="filterBySeller()" ></select>
+            <button onclick="BySeller()"> Search by Seller </button>
+
+           
+            <label for="priceFilter">Enter Price:</label>
+            <input type="number" id="priceFilter">
+            <button onclick="filterByPrice()">Search by Price</button>
+
+    
+            <button onclick="clearFilters()">Clear Filters</button>
+        </section>
+        <section class="products"></section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
