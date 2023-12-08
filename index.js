@@ -97,6 +97,8 @@ const sellerFilter = document.getElementById("sellerFilter");
 const priceFilter = document.getElementById("priceFilter");
 
 initializeFilters();
+generateProductCards(products)
+
 
 function generateProductCards(productsToDisplay) {
   productsSection.innerHTML = "";
@@ -116,6 +118,10 @@ function generateProductCards(productsToDisplay) {
 }
 
 function initializeFilters() {
+  const option = document.createElement("option");
+    option.value = "Filter by Seller";
+    option.textContent = "Filter by Seller";
+    sellerFilter.appendChild(option);
   const uniqueSellers = [...new Set(products.map((product) => product.seller))];
   uniqueSellers.forEach((seller) => {
     const option = document.createElement("option");
