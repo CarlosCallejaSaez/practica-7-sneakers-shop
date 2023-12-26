@@ -99,7 +99,6 @@ const priceFilter = document.getElementById("priceFilter");
 initializeFilters();
 generateProductCards(products)
 
-
 function generateProductCards(productsToDisplay) {
   productsSection.innerHTML = "";
 
@@ -119,9 +118,9 @@ function generateProductCards(productsToDisplay) {
 
 function initializeFilters() {
   const option = document.createElement("option");
-    option.value = "Filter by Seller";
-    option.textContent = "Filter by Seller";
-    sellerFilter.appendChild(option);
+  option.value = "Filter by Seller";
+  option.textContent = "Filter by Seller";
+  sellerFilter.appendChild(option);
   const uniqueSellers = [...new Set(products.map((product) => product.seller))];
   uniqueSellers.forEach((seller) => {
     const option = document.createElement("option");
@@ -131,33 +130,28 @@ function initializeFilters() {
   });
 }
 
-let filteredProducts=[]
+let filteredProducts = [];
 
-function filterBySeller() {
+function filterProducts() {
   const selectedSeller = sellerFilter.value;
-   filteredProducts = selectedSeller
-    ? products.filter((product) => product.seller === selectedSeller)
-    : products;
-
- 
-}
-
-function BySeller(){
-    generateProductCards(filteredProducts);
-}
-
-
-
-function filterByPrice() {
   const enteredPrice = parseFloat(priceFilter.value);
-  const filteredProducts = enteredPrice
-    ? products.filter((product) => product.price <= enteredPrice)
-    : products;
+
+  filteredProducts = products.filter((product) => {
+    const sellerMatch = !selectedSeller || product.seller === selectedSeller;
+    const priceMatch = !enteredPrice || product.price <= enteredPrice;
+    return sellerMatch && priceMatch;
+  });
+
   generateProductCards(filteredProducts);
+
+  const noResultsMessage = document.getElementById("noResultsMessage");
+  noResultsMessage.style.display = filteredProducts.length === 0 ? "block" : "none";
 }
 
 function clearFilters() {
   sellerFilter.value = "";
   priceFilter.value = "";
   generateProductCards(products);
+  const noResultsMessage = document.getElementById("noResultsMessage");
+  noResultsMessage.style.display = "none";
 }
