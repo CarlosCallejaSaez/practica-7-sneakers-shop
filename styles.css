@@ -1,3 +1,11 @@
+:root{
+  --white-color:#fff;
+  --green-color: #4caf50;
+  --orange-color: #ff5733;
+  --gold-color:#ffcc00;
+
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,7 +15,7 @@ body {
 
 header {
   background-color: #333;
-  color: #fff;
+  color: var(--white-color);
   text-align: center;
   padding: 1em;
 }
@@ -51,7 +59,7 @@ main {
  
   cursor: pointer;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 
@@ -68,8 +76,8 @@ img {
 
  
 button {
-  background-color: #4caf50;
-  color: #fff;
+  background-color: var(--green-color);
+  color: var(--white-color);
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -77,22 +85,22 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: var(--gold-color);
 }
 
 
 .clear-filters {
-  background-color: #ff5733;
-  color: #fff;
+  background-color: var(--orange-color);
+  color: var(--white-color);
 }
 
 .clear-filters:hover {
-  background-color: #e64c32;
+  background-color: var(--orange-color);
 }
 
 footer {
   background-color: #333;
-  color: #fff;
+  color: var(--white-color);
   text-align: center;
   padding: 1em;
   display: flex;
@@ -102,11 +110,11 @@ footer {
 
 .social-links a {
   margin-left: 10px;
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
 }
 
 .social-links a:hover {
-  color: #ffcc00;
+  color: var(--gold-color)
 }
 
